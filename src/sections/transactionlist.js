@@ -7,11 +7,11 @@ const TransactionList = () => {
         { id: 123, name: 'Shopping', cost: 50 },
         { id: 123, name: 'Shopping', cost: 50 },
         { id: 123, name: 'Shopping', cost: 50 },
-        { id: 123, name: 'Shopping', cost: 150 }
+        { id: 123, name: 'LV Belt', cost: 150 }
     ]
 
     return (
-        <ul className ='list-group'>
+        <ul className='list-group'>
             {expenses.map((expense)=>(
                 <Transaction
                     id={expense.id} 

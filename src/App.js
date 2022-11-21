@@ -4,6 +4,7 @@ import Budget from './sections/budget.js'
 import Remaining from './sections/remaining.js'
 import Expenses from './sections/expenses.js';
 import TransactionList from './sections/transactionlist.js';
+import AddTransaction from './sections/addtransaction.js';
 
 const App = () => {
     return (
@@ -24,6 +25,12 @@ const App = () => {
             <div className='row mt-3'>
                 <div className='col-sm'>
                     <TransactionList />
+                </div>
+            </div>
+            <h3 className='mt-3'>Add Transaction</h3>
+            <div className='mt-3'>
+                <div className='col-sm'>
+                    <AddTransaction />
                 </div>
             </div>
         </div>
