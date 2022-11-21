@@ -6,9 +6,7 @@ const Transaction = (props) => {
         <li className='list-group-item d-flex justify-content-between align-items-center'>
             {props.name}
             <div>
-                <span>
-                    ${props.cost}
-                </span>
+                <span className='badge bg-secondary mr-3'>${props.cost}</span>
                 <TiDelete size='1.5em'></TiDelete>
             </div>
         </li>
