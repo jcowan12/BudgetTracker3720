@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 
 const ChangeBudget = (props) => {
+	// need current value and value we want
 	const [value, setValue] = useState(props.budget);
+	
+	// outlines input for new value, button for saving
+	// pretty simple due to context api
 	return (
 		<>
 			<input

@@ -3,8 +3,10 @@ import Transaction from './transaction.js';
 import { AppContext } from '../context/AppContext.js';
 
 const TransactionList = () => {
+    // provides expenses array from context
     const { expenses } = useContext(AppContext);
 
+    // returns formatted list
     return (
         <ul className='list-group'>
             {expenses.map((expense)=>(

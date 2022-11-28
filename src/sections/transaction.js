@@ -4,8 +4,10 @@ import { AppContext } from '../context/AppContext';
 
 
 const Transaction = (props) => {
+    // action is involved, so need dispatch
     const { dispatch } = useContext(AppContext);
 
+    // provide definition of deleting a transaction
     const handleDeleteTransaction = () => {
         dispatch({
             type: 'DELETE_TRANS',
@@ -13,6 +15,7 @@ const Transaction = (props) => {
         });
     };
 
+    // connects delete icon w the action of deleting a transaction
     return (
         <li className='list-group-item d-flex justify-content-between align-items-center'>
             {props.name}
