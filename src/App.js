@@ -10,6 +10,9 @@ import { AppProvider } from './context/AppContext.js';
 const App = () => {
     return (
         <AppProvider>
+            <div class='' style={{
+                backgroundColor: 'grey'
+            }}>
             <div className = 'container'>
                 <h1 className='mt-3'>Budget Tracker</h1>
                 <div className='row mt-3'>
@@ -35,6 +38,7 @@ const App = () => {
                         <AddTransaction />
                     </div>
                 </div>
+            </div>
             </div>
         </AppProvider>
     );
