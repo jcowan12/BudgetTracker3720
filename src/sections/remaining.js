@@ -10,8 +10,8 @@ const Remaining = () => {
 
 
     // conditional for color of money left
-    const alertType = totalExpenses > budget ? 'alert-danger' : 'alert-success'
-
+    const alertType = totalExpenses >= (budget - (budget * 0.10)) ? 'alert-warning' : 'alert-success';
+    
     return (
         <div className={`alert ${alertType}`}>
             <span>Money Left: ${budget - totalExpenses}</span>
