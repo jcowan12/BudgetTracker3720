@@ -10,7 +10,11 @@ import { AppProvider } from './context/AppContext.js';
 const App = () => {
     return (
         <AppProvider>
-            <div className = 'container'>
+            <div className = 'container' 
+                style={{
+                    backgroundColor: 'grey',
+                }}
+                >
                 <h1 className='mt-3'>Budget Tracker</h1>
                 <div className='row mt-3'>
                     <div className='col-sm'>
