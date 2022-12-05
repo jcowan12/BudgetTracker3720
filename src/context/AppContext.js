@@ -34,6 +34,7 @@ const AppReducer = (state, action) => {
     }
 };
 
+// intializes everything in state, saves for specific user
 const currState = {
     budget: localStorage.getItem('budget') ? localStorage.getItem('budget') : 0,
     expenses: JSON.parse(localStorage.getItem('expenses')) ? JSON.parse(localStorage.getItem('expenses')) : [],
