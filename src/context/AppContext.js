@@ -1,4 +1,4 @@
-import { createContext, useReducer } from 'react';
+import { createContext, useReducer, useEffect } from 'react';
 
 const AppReducer = (state, action) => {
     
@@ -34,9 +34,9 @@ const AppReducer = (state, action) => {
     }
 };
 
-const initialState = {
-    budget: 0,
-    expenses: [],
+const currState = {
+    budget: localStorage.getItem('budget'),
+    expenses: JSON.parse(localStorage.getItem('expenses')),
 }
 
 
@@ -47,7 +47,11 @@ export const AppContext = createContext();
 * accessed by all elements on the page
 */
 export const AppProvider = (props) => {
-    const[state, dispatch] = useReducer(AppReducer, initialState);
+    const[state, dispatch] = useReducer(AppReducer, currState);
+    useEffect(() => {
+        localStorage.setItem('expenses', JSON.stringify(state.expenses));
+        localStorage.setItem('budget', state.budget);
+    }, [state])
 
     return (
         <AppContext.Provider 
