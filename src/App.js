@@ -14,6 +14,12 @@ const App = () => {
         <AppProvider>
             <div className = 'container'>
                 <h1 className='mt-3'>Budget Tracker</h1>
+                <div className='mt-3'>
+                    <div className='col-sm'>
+                        <LoginButton />
+                        <LogoutButton />
+                    </div>
+                </div>
                 <div className='row mt-3'>
                     <div className='col-sm'>
                         <Budget />
@@ -37,10 +43,7 @@ const App = () => {
                         <AddTransaction />
                     </div>
                 </div>
-                
             </div>
-            <LoginButton />
-            <LogoutButton />
         </AppProvider>
     );
 };
