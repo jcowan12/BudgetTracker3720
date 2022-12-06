@@ -6,6 +6,8 @@ import Expenses from './sections/expenses.js';
 import TransactionList from './sections/transactionlist.js';
 import AddTransaction from './sections/addtransaction.js';
 import { AppProvider } from './context/AppContext.js';
+import LoginButton from './components/LoginButton';
+import LogoutButton from './components/LogoutButton.js';
 
 const App = () => {
     return (
@@ -35,7 +37,10 @@ const App = () => {
                         <AddTransaction />
                     </div>
                 </div>
+                
             </div>
+            <LoginButton />
+            <LogoutButton />
         </AppProvider>
     );
 };
