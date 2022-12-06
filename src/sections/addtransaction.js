@@ -58,7 +58,7 @@ const AddTransaction = () => {
                 </div>
                 <div className='h2'></div>
                 <div className='col-sm'>
-                    <button type='submit' className='btn btn-primary'>
+                    <button type='submit' className='btn btn-dark'>
                     Add
                     </button>
                 </div>
