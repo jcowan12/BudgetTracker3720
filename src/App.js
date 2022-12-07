@@ -8,6 +8,7 @@ import AddTransaction from './sections/addtransaction.js';
 import { AppProvider } from './context/AppContext.js';
 import LoginButton from './components/LoginButton';
 import LogoutButton from './components/LogoutButton.js';
+import Profile from './components/Profile.js';
 
 const App = () => {
     return (
@@ -16,6 +17,7 @@ const App = () => {
                 <h1 className='mt-3'>Budget Tracker</h1>
                 <div className='mt-3'>
                     <div className='col-sm'>
+                        <Profile />
                         <LoginButton />
                         <LogoutButton />
                     </div>
