@@ -1,6 +1,7 @@
 {
   "name": "budget_tracker",
   "version": "0.1.0",
+  "homepage": "https://jcowan.github.io/BudgetTracker3720",
   "private": true,
   "dependencies": {
     "@auth0/auth0-react": "^1.12.0",
