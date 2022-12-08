@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { AppContext } from '../context/AppContext.js';
-import { sendEmail } from '../components/Gmail';
+import { sendEmail } from '../components/Gmail.js';
 
 const Remaining = () => {
     // need both expenses and budget for remaining, get from context
@@ -10,6 +10,7 @@ const Remaining = () => {
     const totalExpenses = expenses.reduce((total, item) => {
         return (total = total + item.cost);
     }, 0);
+
 
 
     // conditional for color of money left

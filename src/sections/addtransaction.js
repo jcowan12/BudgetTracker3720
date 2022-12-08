@@ -1,6 +1,9 @@
 import React, { useState, useContext } from 'react';
 import { AppContext } from '../context/AppContext.js';
 import { v4 as uuidv4 } from 'uuid';
+import { sendEmail } from '../components/Gmail.js';
+import Budget from './budget.js';
+import Expenses from './expenses.js';
 
 
 const AddTransaction = () => {
@@ -14,6 +17,10 @@ const AddTransaction = () => {
     const onSubmit = (event) => {
         event.preventDefault();
         
+        if (Expenses.totalExpenses >= (Budget.budget - (Budget.budget * 0.10))) {
+            sendEmail();
+        }
+
         // array containing id, name, cost
         const expense = {
             id: uuidv4(),
