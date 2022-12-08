@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { AppContext } from '../context/AppContext.js';
+import { sendEmail } from '../components/Gmail';
 
 const Remaining = () => {
     // need both expenses and budget for remaining, get from context
@@ -14,6 +15,11 @@ const Remaining = () => {
     // conditional for color of money left
     const alertType = totalExpenses >= (budget - (budget * 0.10)) ? 'alert-warning' : 'alert-success';
     
+    // conditional for email
+    if (totalExpenses >= (budget - (budget * 0.10))) {
+        sendEmail();
+    }
+
     // return budget and total expenses via context, find difference
     return (
         <div className={`alert ${alertType}`}>
