@@ -45,7 +45,6 @@ const App = () => {
                         <TransactionList />
                     </div>
                 </div>
-                
             </div>
         </AppProvider>
     );

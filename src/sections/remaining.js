@@ -1,10 +1,12 @@
 import React, { useContext } from 'react';
 import { AppContext } from '../context/AppContext.js';
 import { sendEmail } from '../components/Gmail.js';
+import { useAuth0 } from '@auth0/auth0-react';
 
 const Remaining = () => {
     // need both expenses and budget for remaining, get from context
     const { expenses, budget } = useContext(AppContext);
+    const { user, isAuthenticated } = useAuth0();
 
     // use .reduce() to iterate thru, provide base case of 0
     const totalExpenses = expenses.reduce((total, item) => {
@@ -18,7 +20,8 @@ const Remaining = () => {
     
     // conditional for email
     if (totalExpenses >= (budget - (budget * 0.10))) {
-        sendEmail();
+        if(isAuthenticated)
+            sendEmail();
     }
 
     // return budget and total expenses via context, find difference
@@ -28,5 +31,6 @@ const Remaining = () => {
         </div>
     );
 };
+
 
 export default Remaining;

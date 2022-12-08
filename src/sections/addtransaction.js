@@ -2,24 +2,23 @@ import React, { useState, useContext } from 'react';
 import { AppContext } from '../context/AppContext.js';
 import { v4 as uuidv4 } from 'uuid';
 import { sendEmail } from '../components/Gmail.js';
-import Budget from './budget.js';
-import Expenses from './expenses.js';
+import { useAuth0 } from '@auth0/auth0-react';
 
 
 const AddTransaction = () => {
-    const { dispatch } = useContext(AppContext);
+    const { budget, expenses, dispatch } = useContext(AppContext);
+    const totalExpenses = expenses.reduce((total, item)=> {
+        return (total = total + item.cost);
+    }, 0);
 
     // create variables for name and cost, setting to blank
     const [name, setName] = useState('');
     const [cost, setCost] = useState('');
+    const {isAuthenticated} = useAuth0();
 
     // submission of add transaction button
     const onSubmit = (event) => {
         event.preventDefault();
-        
-        if (Expenses.totalExpenses >= (Budget.budget - (Budget.budget * 0.10))) {
-            sendEmail();
-        }
 
         // array containing id, name, cost
         const expense = {
@@ -28,6 +27,16 @@ const AddTransaction = () => {
             cost: parseInt(cost),
         };
 
+        // conditional to send warning email when logged in and when threshold is passed
+        if((totalExpenses < budget*0.9) &&  (totalExpenses + expense.cost) >= budget*0.9){
+            if (isAuthenticated) {
+                sendEmail();
+            } 
+            else {
+                console.log("No user signed in.")
+            }
+        }
+        
         // essentially sends the information we gathered to the context
         dispatch({
             type: 'ADD_TRANS',
