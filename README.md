@@ -2,7 +2,7 @@
 
 ## APIs Used ##
 - Context API (React)
-- GMail API
+- Elastic Email w/ SMTPJS API
 - Auth0 API
 
 ## Functionality ##
