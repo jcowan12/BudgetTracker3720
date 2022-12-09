@@ -14,8 +14,12 @@ const AddTransaction = () => {
     // create variables for name and cost, setting to blank
     const [name, setName] = useState('');
     const [cost, setCost] = useState('');
-    const {isAuthenticated} = useAuth0();
+    const {user, isAuthenticated} = useAuth0();
     const authStatus = isAuthenticated
+    var userEmail = "3720budgettracker@gmail.com"
+    if(authStatus){
+        userEmail = user.email
+    }
 
     // submission of add transaction button
     const onSubmit = (event) => {
@@ -31,7 +35,7 @@ const AddTransaction = () => {
         // conditional to send warning email when logged in and when threshold is passed
         if((totalExpenses < budget*0.9) &&  (totalExpenses + expense.cost) >= budget*0.9){
             if (authStatus) {
-                SendEmail();
+                SendEmail(userEmail);
             } 
             else {
                 console.log("No user signed in.")
