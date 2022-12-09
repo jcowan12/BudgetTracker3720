@@ -15,6 +15,8 @@ const App = () => {
         <AppProvider>
             <div className = 'container'>
                 <h1 className='mt-3'>Budget Tracker</h1>
+                <h4 className='mt-3'>Login to receive emails when you have 10% of your budget remaining!</h4>
+                <div className='h2'></div>
                 <div className='mt-3'>
                     <div className='col-sm'>
                         <Profile />
