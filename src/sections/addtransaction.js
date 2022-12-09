@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { AppContext } from '../context/AppContext.js';
 import { v4 as uuidv4 } from 'uuid';
-import { sendEmail } from '../components/Gmail.js';
+import { SendEmail } from '../components/Gmail.js';
 import { useAuth0 } from '@auth0/auth0-react';
 
 
@@ -31,7 +31,7 @@ const AddTransaction = () => {
         // conditional to send warning email when logged in and when threshold is passed
         if((totalExpenses < budget*0.9) &&  (totalExpenses + expense.cost) >= budget*0.9){
             if (authStatus) {
-                sendEmail();
+                SendEmail();
             } 
             else {
                 console.log("No user signed in.")

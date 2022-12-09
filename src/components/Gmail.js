@@ -1,8 +1,8 @@
-import { useAuth0 } from "@auth0/auth0-react/dist";
+import { useAuth0 } from "@auth0/auth0-react";
 //import { RetEmail } from "./Profile"
 
 
-export function sendEmail () {
+export function SendEmail () {
   const { user } = useAuth0();
   console.log(user.email, "Email sent.")
   const useremail = user.email
