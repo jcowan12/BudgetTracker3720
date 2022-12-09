@@ -15,6 +15,7 @@ const AddTransaction = () => {
     const [name, setName] = useState('');
     const [cost, setCost] = useState('');
     const {isAuthenticated} = useAuth0();
+    const authStatus = isAuthenticated
 
     // submission of add transaction button
     const onSubmit = (event) => {
@@ -29,7 +30,7 @@ const AddTransaction = () => {
 
         // conditional to send warning email when logged in and when threshold is passed
         if((totalExpenses < budget*0.9) &&  (totalExpenses + expense.cost) >= budget*0.9){
-            if (isAuthenticated) {
+            if (authStatus) {
                 sendEmail();
             } 
             else {
