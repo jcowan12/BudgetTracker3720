@@ -13,10 +13,10 @@ const Profile = () => {
     )
 }
 
-export function RetEmail() {
+/*export function RetEmail() {
     const { user } = useAuth0();
-
+    
     return user.email;
-}
+}*/
 
 export default Profile

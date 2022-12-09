@@ -1,8 +1,11 @@
-import { RetEmail } from "./Profile"
+import { useAuth0 } from "@auth0/auth0-react/dist";
+//import { RetEmail } from "./Profile"
+
 
 export function sendEmail () {
-  console.log(RetEmail(), "Email sent.")
-  const useremail = RetEmail()
+  const { user } = useAuth0();
+  console.log(user.email, "Email sent.")
+  const useremail = user.email
   window.Email.send({
       Host : "smtp.elasticemail.com",
       Username : "3720budgettracker@gmail.com",
@@ -11,7 +14,7 @@ export function sendEmail () {
       From : "3720budgettracker@gmail.com",
       Subject : "Budget Tracker",
       Body : "Warning! You're nearing your budget limit!"
-});
+  });
 
 }
 
